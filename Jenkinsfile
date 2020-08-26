@@ -55,7 +55,7 @@ node {
                         error 'Salesforce dev hub org authorization failed.'
                     }
                 }
-                /*
+             
                 // -------------------------------------------------------------------------
                 // Run unit tests in test scratch org.
                 // -------------------------------------------------------------------------
@@ -150,7 +150,7 @@ node {
             }
         }
     }
-       */
+      
 }
 
 def command(script) {
@@ -159,4 +159,5 @@ def command(script) {
     } else {
         return bat(returnStatus: true, script: script);
     }
+}
 }
