@@ -73,7 +73,7 @@ node {
                 
                 stage('Create Package ') {
                     When {
-                        expression { createPackage == false }
+                        expression { package == false }
                     
                         }
                     
@@ -83,7 +83,7 @@ node {
                 }
                     stage('Create Package Version') {
                         When {
-                        expression { createPackage == true }
+                        expression { package == true }
                     
                         }
                     if (isUnix()) {
