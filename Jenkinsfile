@@ -72,12 +72,12 @@ node {
                 // -------------------------------------------------------------------------
                 
                 stage('Create Package ') {
-                    steps {
+                    
                     When {
                         expression { sfdxPrject == true }
                     
                         }
-                    }
+                    steps{
                     
                           
                     createPackage = command "${toolbelt}  force:package:create --name ${PACKAGE_NAME} --description My_Package --packagetype Unlocked --path force-app --nonamespace --targetdevhubusername HubOrg"
@@ -99,6 +99,7 @@ node {
                     
                     println PACKAGE_VERSION
                     
+                    }
                     
                 }
                 
