@@ -73,7 +73,7 @@ node {
                 
                 stage('Create Package Version') {
                     
-                    if (PACKAGE_NAME == ture) { return createPackage}                          
+                    if (PACKAGE_NAME == ture) { }                          
                     createPackage = command "${toolbelt}  force:package:create --name ${PACKAGE_NAME} --description My_Package --packagetype Unlocked --path force-app --nonamespace --targetdevhubusername HubOrg"
                     println createPackage
                                     
