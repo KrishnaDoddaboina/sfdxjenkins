@@ -73,7 +73,7 @@ node {
                 
                 stage('Create Package Version') {
                     When {
-                        expression { "package" == false}
+                        expression { createPackage == false}
                     
                         }
                           
