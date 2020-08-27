@@ -85,6 +85,7 @@ node {
                         output = bat(returnStdout: true, script: "${toolbelt} force:package:version:create --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --targetdevhubusername HubOrg  --json").trim()
                         output = output.readLines().drop(1).join(" ")
                     }
+                   }
                     println output
                     // Wait 5 minutes for package replication.
                     def jsonSlurper = new JsonSlurper()
@@ -95,7 +96,7 @@ node {
                     
                     println PACKAGE_VERSION
                     
-                    }
+                   
                     
                 }
                 
