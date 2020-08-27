@@ -73,7 +73,7 @@ node {
                 
                 stage('Create Package ') {
                     When {
-                        expression { package == false }
+                        expression { sfdxPrject == false }
                     
                         }
                     
