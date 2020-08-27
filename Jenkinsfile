@@ -89,12 +89,6 @@ node {
                     }
                     println output
                     // Wait 5 minutes for package replication.
-                    sleep 30
-                    stage('Create Package Version') {
-                        When {
-                        expression { package == true }
-                    
-                        }
                     def jsonSlurper = new JsonSlurper()
                     def response = jsonSlurper.parseText(output)
                     PACKAGE_VERSION = response.result.SubscriberPackageVersionId
