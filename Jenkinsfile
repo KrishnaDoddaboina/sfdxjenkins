@@ -71,15 +71,9 @@ node {
                 // Create package version.
                 // -------------------------------------------------------------------------
                 
-                stage('Create Package ') {
+                stage('Create Package Version') {
                     
-                    When {
-                        expression { sfdxPrject == false }
-                    
-                        }
-                    steps{
-                    
-                          
+                    if (PACKAGE_NAME = 'ture') { return createPackage}                          
                     createPackage = command "${toolbelt}  force:package:create --name ${PACKAGE_NAME} --description My_Package --packagetype Unlocked --path force-app --nonamespace --targetdevhubusername HubOrg"
                     println createPackage
                                     
@@ -99,7 +93,7 @@ node {
                     
                     println PACKAGE_VERSION
                     
-                    }
+                   
                     
                 }
                 
