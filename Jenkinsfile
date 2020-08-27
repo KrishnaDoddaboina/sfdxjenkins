@@ -80,12 +80,7 @@ node {
                           
                     createPackage = command "${toolbelt}  force:package:create --name ${PACKAGE_NAME} --description My_Package --packagetype Unlocked --path force-app --nonamespace --targetdevhubusername HubOrg"
                     println createPackage
-                }
-                    stage('Create Package Version') {
-                        When {
-                        expression { package == true }
-                    
-                        }
+                                    
                     if (isUnix()) {
                         output = sh returnStdout: true, script: "${toolbelt} force:package:version:create --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --targetdevhubusername HubOrg  --json"
                     } else {
@@ -95,7 +90,11 @@ node {
                     println output
                     // Wait 5 minutes for package replication.
                     sleep 30
+                    stage('Create Package Version') {
+                        When {
+                        expression { package == true }
                     
+                        }
                     def jsonSlurper = new JsonSlurper()
                     def response = jsonSlurper.parseText(output)
                     PACKAGE_VERSION = response.result.SubscriberPackageVersionId
